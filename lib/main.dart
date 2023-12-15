@@ -28,20 +28,22 @@ class SplashScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const TicTacToe()),
           );
         },
-        child: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.add_to_drive_outlined,
-                size: 100,
-              ),
-              SizedBox(height: 10),
-              Text(
-                'TIC TAC TOE GAME',
-                style: TextStyle(fontSize: 20),
-              ),
-            ],
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('images/ticimg.jpg'), fit: BoxFit.contain),
+          ),
+          child: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 500),
+                Text(
+                  'TIC TAC TOE',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -81,7 +83,7 @@ class _TicTacToeState extends State<TicTacToe> {
             builder: (BuildContext context) {
               return AlertDialog(
                 title: const Text('Game Over'),
-                content: Text('$winner wins!'),
+                content: Text('$winner WINS!'),
                 actions: [
                   TextButton(
                     onPressed: () {
@@ -103,7 +105,7 @@ class _TicTacToeState extends State<TicTacToe> {
                     'GAME OVER!',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  content: const Text('GAME DRAW!'),
+                  content: const Text('ITS A DRAW!'),
                   actions: [
                     TextButton(
                       onPressed: () {
